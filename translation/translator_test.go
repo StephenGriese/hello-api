@@ -8,14 +8,67 @@ import (
 
 func TestTranslate(t *testing.T) {
 	// Arrange
-	word := "hello"
-	language := "english"
+	tt := []struct {
+		Word        string
+		Language    string
+		Translation string
+	}{
+		{
+			Word:        "hello",
+			Language:    "english",
+			Translation: "hello",
+		},
+		{
+			Word:        "hello",
+			Language:    "german",
+			Translation: "hallo",
+		},
+		{
+			Word:        "hello",
+			Language:    "finnish",
+			Translation: "hei",
+		},
+		{
+			Word:        "hello",
+			Language:    "dutch",
+			Translation: "",
+		},
+		{
+			Word:        "bye",
+			Language:    "dutch",
+			Translation: "",
+		},
+		{
+			Word:        "bye",
+			Language:    "german",
+			Translation: "",
+		},
+		{
+			Word:        "hello",
+			Language:    "German",
+			Translation: "hallo",
+		},
+		{
+			Word:        "Hello",
+			Language:    "german",
+			Translation: "hallo",
+		},
+		{
+			Word:        "hello ",
+			Language:    "german",
+			Translation: "hallo",
+		},
+	}
 
-	// Act
-	res := translation.Translate(word, language)
+	for _, test := range tt {
+		// Act
+		res := translation.Translate(test.Word, test.Language)
 
-	// Assert
-	if res != "hello" {
-		t.Errorf(`expected "hello" but received "%s"`, res)
+		// Assert
+		if res != test.Translation {
+			t.Errorf(
+				`expected "%s" to be "%s" from "%s" but received "%s"`,
+				test.Word, test.Language, test.Translation, res)
+		}
 	}
 }
