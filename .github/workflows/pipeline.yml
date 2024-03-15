@@ -69,14 +69,12 @@ jobs:
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
-        with:
-          tag_name: ${{ github.ref }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          with:
+        with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
-          body: |
+          body:
             Still in experimentation phase
           draft: true
           prerelease: true
@@ -84,8 +82,8 @@ jobs:
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN:
-              ${{ secrets.GITHUB_TOKEN }}
-          with:
+            ${{ secrets.GITHUB_TOKEN }}
+        with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: api
           asset_name: api
