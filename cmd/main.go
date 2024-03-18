@@ -16,6 +16,7 @@ func main() {
 
 	mux.HandleFunc("/hello", rest.TranslateHandler)
 	mux.HandleFunc("/health", handlers.HealthCheck)
+	mux.HandleFunc("/roster", rest.RosterHandler)
 
 	log.Printf("listening on %s\n", addr)
 
