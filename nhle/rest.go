@@ -88,6 +88,7 @@ func (ps playerService) Players() ([]roster.Player, error) {
 	return result, nil
 }
 
+/*
 func (ps playerService) sendRequest(req *http.Request, v interface{}) error {
 	res, err := ps.HTTPClient.Do(req)
 	if err != nil {
@@ -123,3 +124,4 @@ func (ps playerService) sendRequest(req *http.Request, v interface{}) error {
 
 	return nil
 }
+*/

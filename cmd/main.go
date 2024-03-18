@@ -1,16 +1,21 @@
 package main
 
 import (
+	"fmt"
 	"github.com/StephenGriese/hello-api/handlers"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/StephenGriese/hello-api/handlers/rest"
 )
 
 func main() {
 
-	addr := ":8080"
+	addr := fmt.Sprintf(":%s", os.Getenv("PORT"))
+	if addr == ":" {
+		addr = ":8080"
+	}
 
 	mux := http.NewServeMux()
 
