@@ -143,7 +143,7 @@ jobs:
         run: 'gcloud info'
 
       - name: Install app engine component
-        run: 'gcloud --quiet componsents install app-engine-go'
+        run: 'gcloud --quiet components install app-engine-go'
 
       - name: Use gcloud CLI
         run: 'gcloud info'
@@ -153,7 +153,6 @@ jobs:
         uses: 'google-github-actions/deploy-appengine@v2'
         with:
           project_id: hello-api-shipping-go
-          gcloud_component: app-engine-go
 
       - id: test
         run: curl "${{ steps.deploy.outputs.url }}/translate/hello"
