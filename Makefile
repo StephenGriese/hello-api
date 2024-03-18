@@ -16,3 +16,6 @@ report:
 check-format:
 	test -z $$(go fmt ./...)
 
+static-check:
+	golangci-lint run
+
