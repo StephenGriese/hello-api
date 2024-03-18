@@ -134,19 +134,19 @@ jobs:
         with:
           credentials_json: ${{ secrets.gcp_credentials }}
 
-      - name: Set up Cloud SDK
-        uses: google-github-actions/setup-gcloud@v2
-        with:
-          version: '>= 468.0.0'
+#      - name: Set up Cloud SDK
+#        uses: google-github-actions/setup-gcloud@v2
+#        with:
+#          version: '>= 468.0.0'
 
-      - name: Use gcloud CLI
-        run: 'gcloud info'
+#      - name: Use gcloud CLI
+#        run: 'gcloud info'
 
       - name: Install app engine component
         run: 'gcloud --quiet components install app-engine-go'
 
-      - name: Use gcloud CLI
-        run: 'gcloud info'
+#      - name: Use gcloud CLI
+#        run: 'gcloud info'
 
       - name: Deploy App
         id: deploy
