@@ -1,6 +1,18 @@
 linters:
   enable:
     - gosec
+    - godot
+    - misspell
+    - stylecheck
+
+linters-settings:
+  stylecheck:
+    # Select the Go version to target. The default is '1.13'.
+    go: "1.18"
+    checks: ["all", "ST1*"]
+
+issues:
+  exclude-use-default: false
 
 output:
   format: colored-line-number
