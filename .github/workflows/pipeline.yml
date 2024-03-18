@@ -102,6 +102,7 @@ jobs:
         id: deploy
         uses: google-github-actions/deploy-cloud-functions@main
         with:
+          project_id: hello-api-shipping-go
           name: translate
           entrypoint: Translate
           runtime: go116
