@@ -139,6 +139,15 @@ jobs:
         with:
           version: '>= 468.0.0'
 
+      - name: Use gcloud CLI
+        run: 'gcloud info'
+
+      - name: Install app engine component
+        run: 'gcloud --quiet componsents install app-engine-go'
+
+      - name: Use gcloud CLI
+        run: 'gcloud info'
+
       - name: Deploy App
         id: deploy
         uses: 'google-github-actions/deploy-appengine@v2'
