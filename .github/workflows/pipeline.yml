@@ -141,7 +141,10 @@ jobs:
 
       - name: Deploy App
         id: deploy
-        uses: google-github-actions/deploy-appengine@v2
+        uses: 'google-github-actions/deploy-appengine@v2'
+        with:
+          project_id: hello-api-shipping-go
+          component: app-engine-go
 
       - id: test
         run: curl "${{ steps.deploy.outputs.url }}/translate/hello"
