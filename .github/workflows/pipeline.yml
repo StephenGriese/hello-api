@@ -127,11 +127,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Authenticate
-        id: auth
-        uses: google-github-actions/auth@v2
-        with:
-          credentials_json: ${{ secrets.gcp_credentials }}
+#      - name: Authenticate
+#        id: auth
+#        uses: google-github-actions/auth@v2
+#        with:
+#          credentials_json: ${{ secrets.gcp_credentials }}
 
       - name: Deploy App
         id: deploy
