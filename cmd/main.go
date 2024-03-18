@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/StephenGriese/hello-api/handlers"
 	"log"
 	"net/http"
 
@@ -13,7 +14,8 @@ func main() {
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/hello", rest.TranslateHandler)
+	mux.HandleFunc("/translate/hello", rest.TranslateHandler)
+	mux.HandleFunc("/health", handlers.HealthCheck)
 
 	log.Printf("listening on %s\n", addr)
 

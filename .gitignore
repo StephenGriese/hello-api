@@ -22,3 +22,6 @@ go.work
 coverage.out
 cover.html
 
+.idea
+
+
