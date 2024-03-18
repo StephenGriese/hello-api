@@ -135,9 +135,7 @@ jobs:
 
       - name: Deploy App
         id: deploy
-        uses: google-github-actions/deploy-appengine@main
-        with:
-          credentials: ${{ secrets.gcp_credentials }}
+        uses: google-github-actions/deploy-appengine@v2
 
       - id: test
         run: curl "${{ steps.deploy.outputs.url }}/translate/hello"
