@@ -112,8 +112,7 @@ jobs:
           project_id: hello-api-shipping-go
           name: translate
           entry_point: Translate
-          runtime: go116
-          #credentials: ${{ secrets.gcp_credentials }}
+          runtime: go119
 
       - name: Test the function
         id: test
