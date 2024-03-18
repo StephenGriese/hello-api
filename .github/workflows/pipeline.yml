@@ -144,7 +144,7 @@ jobs:
         uses: 'google-github-actions/deploy-appengine@v2'
         with:
           project_id: hello-api-shipping-go
-          component: app-engine-go
+          gcloud_component: app-engine-go
 
       - id: test
         run: curl "${{ steps.deploy.outputs.url }}/translate/hello"
