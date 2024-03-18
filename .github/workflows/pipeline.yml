@@ -122,16 +122,22 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
+
       - name: Check out code into the Go module directory
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
-#      - name: Authenticate
-#        id: auth
-#        uses: google-github-actions/auth@v2
-#        with:
-#          credentials_json: ${{ secrets.gcp_credentials }}
+      - name: Authenticate
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.gcp_credentials }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+        with:
+          version: '>= 468.0.0'
 
       - name: Deploy App
         id: deploy
