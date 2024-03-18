@@ -9,6 +9,9 @@ on:
       - main
 jobs:
   test:
+    needs:
+      - format-check
+      - lint
     name: Test Application
     runs-on: ubuntu-latest
     steps:
@@ -33,6 +36,12 @@ jobs:
         with:
             name: reports
             path: reports
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint
+        uses: golangci/golangci-lint-action@v2
   format-check:
     name: Check formatting
     runs-on: ubuntu-latest
@@ -45,6 +54,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Run format check
         run: make check-format
+      - name: Vet
+        run: go vet ./...
   build:
     name: Build App
     runs-on: ubuntu-latest
