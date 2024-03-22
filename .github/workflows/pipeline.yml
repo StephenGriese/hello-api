@@ -125,6 +125,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     steps:
+
+      - name: Sanity check
+        run: |
+            echo hello-api-shipping-go
+            echo secret ${{ secrets.GCP_PROJECT_ID }}
+            echo env ${{ env.GCP_PROJECT_ID }}
+
       - name: Install Pack
         run: (curl -sSL "https://github.com/buildpacks/pack/releases/download/v0.21.1/pack-v0.21.1-linux.tgz" | sudo tar -C /usr/local/bin/ --no-same-owner -xzv pack)
       - name: Build
