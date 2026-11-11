@@ -39,7 +39,7 @@ func (ps playerService) Players() ([]roster.Player, error) {
 		return nil, err
 	}
 
-	defer res.Body.Close()
+	defer func() { _ = res.Body.Close() }()
 
 	if res.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("unknown error, status code: %d", res.StatusCode)
@@ -95,7 +95,7 @@ func (ps playerService) sendRequest(req *http.Request, v interface{}) error {
 		return err
 	}
 
-	defer res.Body.Close()
+	defer func() { _ = res.Body.Close() }()
 
 	if res.StatusCode != http.StatusOK {
 		return fmt.Errorf("unknown error, status code: %d", res.StatusCode)

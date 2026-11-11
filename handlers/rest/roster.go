@@ -18,6 +18,6 @@ func RosterHandler(w http.ResponseWriter, r *http.Request) {
 		return players[i].SweaterNumber < players[j].SweaterNumber
 	})
 	for _, b := range players {
-		fmt.Fprintf(w, "%2d   %-25s %s\n", b.SweaterNumber, b.FirstName+" "+b.LastName, b.Position)
+	_, _ = fmt.Fprintf(w, "%2d   %-25s %s\n", b.SweaterNumber, b.FirstName+" "+b.LastName, b.Position)
 	}
 }
